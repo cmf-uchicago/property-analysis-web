@@ -41,3 +41,4 @@ vignettes/*.pdf
 #map stuff
 /map/node_modules/
 /map/.DS_Store
+/mapold/
