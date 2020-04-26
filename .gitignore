@@ -37,3 +37,7 @@ vignettes/*.pdf
 
 # R Environment Variables
 .Renviron
+
+#map stuff
+/map/node_modules/
+/map/.DS_Store
