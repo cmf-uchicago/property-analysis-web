@@ -14,7 +14,7 @@ domReady(() => {
 function map() {
   var zoomThreshold = 5;
   var color_ls = ['#D73027', '#F46D43', '#FDAE61', '#FEE08B', '#D9EF8B', '#A6D96A', '#66BD63', '#1A9850'];
-  var cutoff_r95_vals = [0, 0.5, 0.8, 0.9, 0.95, 1, 1.05, 1.1, Infinity];
+  var cutoff_r95_vals = [0, 0.5, 0.75, 0.85, 0.95, 1, 1.05, 1.1, Infinity];
   var bounds = new mapboxgl.LngLatBounds([-127, 22.5], [-65, 51])
 
   var map = new mapboxgl.Map({
