@@ -29,7 +29,7 @@ function map() {
     map.addControl(new mapboxgl.NavigationControl());
 
     map.on('load', function() {
-      map.addSource('weighted_mean', {
+      map.addSource('r10_to_90_2', {
       'type': 'vector',
       'url': 'mapbox://erhlango.cad2m3uh'
       });
@@ -42,7 +42,7 @@ function map() {
       map.addLayer(
         {
         'id': 'states-layer',
-        'source': 'weighted_mean',
+        'source': 'r10_to_90_2',
         'source-layer': 'states-61tqdo',
         'maxzoom': zoomThreshold,
         'type': 'fill',
@@ -50,7 +50,7 @@ function map() {
         'fill-color': [
         'interpolate',
         ['linear'],
-        ['get', 'weighted_mean'],
+        ['get', 'r10_to_90_2'],
         cutoff_vals[0],
         color_ls[0],
         cutoff_vals[1],
