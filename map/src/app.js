@@ -36,7 +36,7 @@ function map() {
 
       map.addSource('r10_to_90', {
         'type': 'vector',
-        'url': 'mapbox://erhlango.6h6vbi6e'
+        'url': 'mapbox://erhlango.5e7hhwiz'
         }); // counties
 
       map.addLayer(
@@ -75,7 +75,7 @@ function map() {
         {
         'id': 'counties-layer',
         'source': 'r10_to_90',
-        'source-layer': 'counties-9eb6pv',
+        'source-layer': 'counties-7dni8i',
         'minzoom': zoomThreshold,
         'type': 'fill',
         'paint': {
@@ -110,6 +110,7 @@ function map() {
           });        
 
         map.on('mousemove', 'counties-layer', function(e) { // show county info on hover over
+          console.log(e.features[0]);
           map.getCanvas().style.cursor = 'pointer';
           popup
           .setLngLat(e.lngLat)
@@ -124,6 +125,7 @@ function map() {
 
 
         map.on('click', 'states-layer', function(e) { // zoom to state on click
+          console.log(e.features[0]);
           map.flyTo({
             center: e.lngLat,
             zoom: 6
