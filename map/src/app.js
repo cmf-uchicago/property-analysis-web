@@ -13,8 +13,8 @@ domReady(() => {
 
 function map() {
   var zoomThreshold = 5;
-  var color_ls = ['#D73027', '#F46D43', '#FDAE61', '#FEE08B', '#D9EF8B', '#A6D96A', '#66BD63', '#1A9850'];
-  var cutoff_r95_vals = [0, 0.5, 0.8, 0.9, 0.95, 1, 1.05, 1.1, Infinity];
+  var color_ls = ['#1A9850','#66BD63','#A6D96A','#D9EF8B','#FEE08B','#FDAE61','#F46D43','#D73027'];
+  var cutoff_vals = [0, 0.9, 0.95, 1, 1.05, 1.1, 1.25, 2, 1000];
   var bounds = new mapboxgl.LngLatBounds([-127, 22.5], [-65, 51])
 
   var map = new mapboxgl.Map({
@@ -34,7 +34,7 @@ function map() {
       'url': 'mapbox://erhlango.cad2m3uh'
       });
 
-      map.addSource('r95_to_r5', {
+      map.addSource('r10_to_90', {
         'type': 'vector',
         'url': 'mapbox://erhlango.6h6vbi6e'
         });
@@ -51,21 +51,21 @@ function map() {
         'interpolate',
         ['linear'],
         ['get', 'weighted_mean'],
-        cutoff_r95_vals[0],
+        cutoff_vals[0],
         color_ls[0],
-        cutoff_r95_vals[1],
+        cutoff_vals[1],
         color_ls[1],
-        cutoff_r95_vals[2],
+        cutoff_vals[2],
         color_ls[2],
-        cutoff_r95_vals[3],
+        cutoff_vals[3],
         color_ls[3],
-        cutoff_r95_vals[4],
+        cutoff_vals[4],
         color_ls[4],
-        cutoff_r95_vals[5],
+        cutoff_vals[5],
         color_ls[5],
-        cutoff_r95_vals[6],
+        cutoff_vals[6],
         color_ls[6],
-        cutoff_r95_vals[7],
+        cutoff_vals[7],
         color_ls[7]
         ],
         'fill-opacity': 0.75
@@ -74,7 +74,7 @@ function map() {
       map.addLayer(
         {
         'id': 'counties-layer',
-        'source': 'r95_to_r5',
+        'source': 'r10_to_90',
         'source-layer': 'counties-9eb6pv',
         'minzoom': zoomThreshold,
         'type': 'fill',
@@ -82,22 +82,22 @@ function map() {
         'fill-color': [
         'interpolate',
         ['linear'],
-        ['get', 'r95_to_r5'],
-        cutoff_r95_vals[0],
+        ['get', 'r10_to_90'],
+        cutoff_vals[0],
         color_ls[0],
-        cutoff_r95_vals[1],
+        cutoff_vals[1],
         color_ls[1],
-        cutoff_r95_vals[2],
+        cutoff_vals[2],
         color_ls[2],
-        cutoff_r95_vals[3],
+        cutoff_vals[3],
         color_ls[3],
-        cutoff_r95_vals[4],
+        cutoff_vals[4],
         color_ls[4],
-        cutoff_r95_vals[5],
+        cutoff_vals[5],
         color_ls[5],
-        cutoff_r95_vals[6],
+        cutoff_vals[6],
         color_ls[6],
-        cutoff_r95_vals[7],
+        cutoff_vals[7],
         color_ls[7]
         ],
         'fill-opacity': 0.75
@@ -154,7 +154,7 @@ function map() {
         });
 
         for (let i = 0; i < color_ls.length; i++) {
-          const layer = cutoff_r95_vals[i] + " to " + cutoff_r95_vals[i+1];
+          const layer = cutoff_vals[i] + " to " + cutoff_vals[i+1];
           const color = color_ls[i];
           const item = document.createElement('div');
           const key = document.createElement('span');
