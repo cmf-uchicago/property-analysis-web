@@ -29,20 +29,20 @@ function map() {
     map.addControl(new mapboxgl.NavigationControl());
 
     map.on('load', function() {
-      map.addSource('r10_to_90_2', {
+      map.addSource('r10_90', {
       'type': 'vector',
       'url': 'mapbox://erhlango.cad2m3uh'
-      });
+      }); // states
 
       map.addSource('r10_to_90', {
         'type': 'vector',
         'url': 'mapbox://erhlango.6h6vbi6e'
-        });
+        }); // counties
 
       map.addLayer(
         {
         'id': 'states-layer',
-        'source': 'r10_to_90_2',
+        'source': 'r10_90',
         'source-layer': 'states-61tqdo',
         'maxzoom': zoomThreshold,
         'type': 'fill',
@@ -50,7 +50,7 @@ function map() {
         'fill-color': [
         'interpolate',
         ['linear'],
-        ['get', 'r10_to_90_2'],
+        ['get', 'r10_90'],
         cutoff_vals[0],
         color_ls[0],
         cutoff_vals[1],
