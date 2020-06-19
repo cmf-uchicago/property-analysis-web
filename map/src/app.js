@@ -110,7 +110,6 @@ function map() {
           });        
 
         map.on('mousemove', 'counties-layer', function(e) { // show county info on hover over
-          console.log(e.features[0]);
           map.getCanvas().style.cursor = 'pointer';
           popup
           .setLngLat(e.lngLat)
@@ -125,7 +124,6 @@ function map() {
 
 
         map.on('click', 'states-layer', function(e) { // zoom to state on click
-          console.log(e.features[0]);
           map.flyTo({
             center: e.lngLat,
             zoom: 6
