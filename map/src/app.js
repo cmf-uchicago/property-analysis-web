@@ -31,7 +31,7 @@ function map() {
     map.on('load', function() {
       map.addSource('r10_90', {
       'type': 'vector',
-      'url': 'mapbox://erhlango.cad2m3uh'
+      'url': 'mapbox://erhlango.29mnglkg'
       }); // states
 
       map.addSource('r10_to_90', {
@@ -43,7 +43,7 @@ function map() {
         {
         'id': 'states-layer',
         'source': 'r10_90',
-        'source-layer': 'states-61tqdo',
+        'source-layer': 'states2-4j8abg',
         'maxzoom': zoomThreshold,
         'type': 'fill',
         'paint': {
